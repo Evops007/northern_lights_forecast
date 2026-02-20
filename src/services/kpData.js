@@ -16,9 +16,9 @@ export default async function getNoaaForecast() {
     const dates = dateLine.split(/\s+/)
 
     const result = [
-        { date: "Feb 17", intervals: [] },
-        { date: "Feb 18", intervals: [] },
-        { date: "Feb 19", intervals: [] }
+        { date: `${dates[0]} ${dates[1]}`, intervals: [] },
+        { date: `${dates[2]} ${dates[3]}`, intervals: [] },
+        { date: `${dates[4]} ${dates[5]}`, intervals: [] }
     ];
 
     for (let i = 0; i < 8; i++) {
