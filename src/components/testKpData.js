@@ -21,7 +21,7 @@ export default async function TestKpData() {
 
             <pre className="bg-base-300 p-4 rounded text-xs overflow-auto">
                 {JSON.stringify(sunData, null, 20)}
-                <p>solen i {sunData[0].name} står opp {sunData[0].sunrise.time} og går ned {sunData[0].sunset.time} </p>
+                <p>solen i {sunData[0].place.name} står opp {sunData[0].place.forecast[0].sunrise.time} og går ned {sunData[0].place.forecast[0].sunset.time} i dag {sunData[0].place.forecast[0].date} </p>
             </pre>
 
             
