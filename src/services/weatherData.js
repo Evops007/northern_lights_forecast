@@ -4,7 +4,6 @@ export default async function weatherData() {
 
     const base_URl = "https://api.met.no/weatherapi/"
     const sunrise = "sunrise/3.0/sun?"
-    const weather = "locationforecast/2.0/compact?"
     const datestring = "&date="
     const date = new Date(); //dagens dato
     const date2 = new Date(); //dagen etter i dag
