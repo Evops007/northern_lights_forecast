@@ -67,8 +67,25 @@ export default async function getNightCloudCover() {
         }
     }
     
-    //neste oppgave: samle data under samme navn - samme som i weatherData
+    //samle data under samme navn - samme som i weatherData
+    function mergeFilteredData(filteredData) {
+        const merged = {};
 
-    console.log(filteredData)
-    return filteredData
+        for (const item of filteredData) {
+            const name = item.place;
+
+            if(merged[name]) {
+                merged[name].weatherForecast.push(...item.weatherForecast)
+            } else {
+                merged[name] = structuredClone(item)
+            }
+        }
+
+        return Object.values(merged)
+    }
+    
+    const mergedData = mergeFilteredData(filteredData)
+    // console.log(mergedData)
+
+    return mergedData
 }

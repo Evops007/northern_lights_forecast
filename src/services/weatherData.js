@@ -78,19 +78,19 @@ export default async function weatherData() {
     }
 
     function mergeLocationData(locationData) {  //funksjon  for å samle forecast under samme name
-    const merged = {};
+        const merged = {};
 
-    for (const item of locationData) {
-        const name = item.place.name;
+        for (const item of locationData) {
+            const name = item.place.name;
 
-        if (merged[name]) {
-        merged[name].place.forecast.push(...item.place.forecast);
-        } else {
-        merged[name] = structuredClone(item);
+            if (merged[name]) {
+                merged[name].place.forecast.push(...item.place.forecast);
+            } else {
+                merged[name] = structuredClone(item);
+            }
         }
-    }
 
-    return Object.values(merged);
+        return Object.values(merged);
     }
 
     const mergedData = mergeLocationData(locationsData);
