@@ -54,7 +54,7 @@ export default async function getNightCloudCover() {
             const weatherForecast = rawData[i].properties.timeseries.filter(t => {
             const time = new Date(t.time);
             const isSameDay = time >= dayStart && time <= dayEnd;
-            const isNight   = time < sunriseTime || time > sunsetTime;
+            const isNight = time < sunriseTime || time > sunsetTime;
 
             return isSameDay && isNight;
             });
