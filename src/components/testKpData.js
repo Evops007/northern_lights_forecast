@@ -14,8 +14,6 @@ export default async function TestKpData() {
     const highestKp = data[1].intervals.map(item => item.kp);
     const maxKp = Math.max(...highestKp);
     const auroraLimit = 75 - (maxKp * 3);
-    
-    
 
     return (
         <div> 
