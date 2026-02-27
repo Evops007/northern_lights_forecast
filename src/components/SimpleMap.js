@@ -1,10 +1,19 @@
 "use client"
-
-
 import { ComposableMap, Geographies, Geography, Marker } from "react-simple-maps";
+import ForecastCard from "./ForecastCard";
+import { useState } from "react";
 
-export default function SimpleMap() {
+export default function SimpleMap({completeForecast}) {
+  const [completeForecastIndex, setcompleteForecastIndex] = useState(0)
+  const handleClick = (id) => {
+    const indexOf = completeForecast.findIndex((element => element.place === id ))
+    console.log(id)
+    console.log(indexOf)
+    setcompleteForecastIndex(indexOf)
+  }
+
   return (
+    <>
     <ComposableMap 
         projection="geoMercator"
         style={{ width: "100%", height: "auto", background: "none" }}
@@ -30,7 +39,7 @@ export default function SimpleMap() {
       <Marker 
         coordinates={[18.95508, 69.6489]} /*{[lon, lat]} !important! */
       > 
-      <g className="group">
+      <g className="group" id="Tromsø" onClick={(e) => handleClick(e.currentTarget.id)} >
         <text textAnchor="middle" y="-27" x="-3" fontSize="0.8rem"  className="font-medium fill-neutral/80 group-hover:fill-accent transition-colors duration-600" > 
           Tromsø
         </text>
@@ -56,10 +65,10 @@ export default function SimpleMap() {
       </g>
       </Marker>
 
-      <Marker 
+      <Marker
         coordinates={[23.27165, 69.96887]} /*{[lon, lat]} !important! */
-      > 
-      <g className="group">
+      >
+      <g className="group" id="Alta" onClick={(e) => handleClick(e.currentTarget.id)}>
         <text textAnchor="middle" y="-18" x="" fontSize="0.5rem"  className="font-medium fill-neutral/80 group-hover:fill-accent transition-colors duration-600" > 
           Alta
         </text>
@@ -83,12 +92,13 @@ export default function SimpleMap() {
           <path d="M23.3475 7.7825C27.643 12.0779 27.643 19.0521 23.3475 23.3475L15.565 31.13L7.7825 23.3475C3.48705 19.0521 3.48705 12.0779 7.7825 7.7825C12.0779 3.48705 19.0521 3.48705 23.3475 7.7825Z" stroke="none"></path>
         </svg>
       </g>
+
       </Marker>
 
       <Marker 
         coordinates={[17.4272, 68.43838]} /*{[lon, lat]} !important! */
       > 
-      <g className="group">
+      <g className="group" id="Narvik" onClick={(e) => handleClick(e.currentTarget.id)}>
         <text textAnchor="middle" y="-18" x="" fontSize="0.5rem"  className="font-medium fill-neutral/80 group-hover:fill-accent transition-colors duration-600" > 
           Narvik
         </text>
@@ -117,7 +127,7 @@ export default function SimpleMap() {
       <Marker 
         coordinates={[17.499998, 69.333332]} /*{[lon, lat]} !important! */
       > 
-      <g className="group">
+      <g className="group" id="Senja" onClick={(e) => handleClick(e.currentTarget.id)}>
         <text textAnchor="middle" y="-18" x="" fontSize="0.5rem"  className="font-medium fill-neutral/80 group-hover:fill-accent transition-colors duration-600" > 
           Senja
         </text>
@@ -146,7 +156,7 @@ export default function SimpleMap() {
       <Marker 
         coordinates={[20.21702, 69.57621]} /*{[lon, lat]} !important! */
       > 
-      <g className="group">
+      <g className="group" id="Lyngen" onClick={(e) => handleClick(e.currentTarget.id)}>
         <text textAnchor="middle" y="-18" x="" fontSize="0.5rem"  className="font-medium fill-neutral/80 group-hover:fill-accent transition-colors duration-600" > 
           Lyngen
         </text>
@@ -175,7 +185,7 @@ export default function SimpleMap() {
       <Marker 
         coordinates={[25.786972, 71.164932]} /*{[lon, lat]} !important! */
       > 
-      <g className="group">
+      <g className="group" id="Nordkapp" onClick={(e) => handleClick(e.currentTarget.id)}>
         <text textAnchor="middle" y="-18" x="" fontSize="0.5rem"  className="font-medium fill-neutral/80 group-hover:fill-accent transition-colors duration-600" > 
           Nordkapp
         </text>
@@ -204,7 +214,7 @@ export default function SimpleMap() {
       <Marker 
         coordinates={[14.56834, 68.23417]} /*{[lon, lat]} !important! */
       > 
-      <g className="group">
+      <g className="group" id="Lofoten" onClick={(e) => handleClick(e.currentTarget.id)}>
         <text textAnchor="middle" y="-18" x="" fontSize="0.5rem"  className="font-medium fill-neutral/80 group-hover:fill-accent transition-colors duration-600" > 
           Lofoten
         </text>
@@ -233,7 +243,7 @@ export default function SimpleMap() {
       <Marker 
         coordinates={[14.404916, 67.280357]} /*{[lon, lat]} !important! */
       > 
-      <g className="group">
+      <g className="group" id="Bodø" onClick={(e) => handleClick(e.currentTarget.id)}>
         <text textAnchor="middle" y="-18" x="" fontSize="0.5rem"  className="font-medium fill-neutral/80 group-hover:fill-accent transition-colors duration-600" > 
           Bodø
         </text>
@@ -262,7 +272,7 @@ export default function SimpleMap() {
       <Marker 
         coordinates={[30.04578, 69.72706]} /*{[lon, lat]} !important! */
       > 
-      <g className="group">
+      <g className="group" id="Kirkenes" onClick={(e) => handleClick(e.currentTarget.id)}>
         <text textAnchor="middle" y="-18" x="" fontSize="0.5rem"  className="font-medium fill-neutral/80 group-hover:fill-accent transition-colors duration-600" > 
           Kirkenes
         </text>
@@ -288,5 +298,8 @@ export default function SimpleMap() {
       </g>
       </Marker>
     </ComposableMap>
+
+    <ForecastCard completeForecast={completeForecast} completeForecastIndex={completeForecastIndex} />
+  </>
   );
 }

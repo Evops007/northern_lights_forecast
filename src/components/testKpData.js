@@ -21,7 +21,7 @@ export default async function TestKpData() {
                 Nordlys kan sees fra {auroraLimit}°N
             </p>
             <pre className="bg-base-300 p-4 rounded text-xs overflow-auto">
-                <p>skydekket i {calculatedAurora[0].place} er {calculatedAurora[0].dates[0].forecasts[0].weatherForecast.cloud_area_fraction}% og kp er {calculatedAurora[0].dates[0].forecasts[0].auroraForecast.kp.kpValue}</p>
+                <p>skydekket i {calculatedAurora[0].place} er {calculatedAurora[0].dates[0].forecasts[0].weatherForecast.cloud_area_fraction}% og kp er {calculatedAurora[0].dates[0].forecasts[0].auroraForecast.kp.kpValue} og {calculatedAurora[0].dates[0].forecasts[0].auroraScore}</p>
             </pre>
             <pre className="bg-base-300 p-4 rounded text-xs overflow-auto">
                 {JSON.stringify(data, null, 20)}

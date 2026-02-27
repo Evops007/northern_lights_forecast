@@ -64,7 +64,7 @@ export default async function calculateKpData() {
                         }
                     },
                     weatherForecast: weatherForecast[i].weatherForecast[j].data.instant.details,
-                    auroraScore: null
+                    auroraScore: 5
                 }
             })
             
@@ -125,20 +125,20 @@ export default async function calculateKpData() {
                 for (let k = 0; k < locations.length; k++) {
                     if(locations[k].lat > mergedData[i].dates[j].forecasts[0].auroraForecast.kp.auroraLimit){
                         if(auroraForecastArray[i].dates[j].forecasts[0].weatherForecast.cloud_area_fraction < 25){
-                            auroraForecastArray[i].dates[j].forecasts[0].auroraScore = 3
+                            auroraForecastArray[i].dates[j].forecasts[0].auroraScore = 95
                         } else if(auroraForecastArray[i].dates[j].forecasts[0].weatherForecast.cloud_area_fraction < 40){
-                            auroraForecastArray[i].dates[j].forecasts[0].auroraScore = 2
+                            auroraForecastArray[i].dates[j].forecasts[0].auroraScore = 60
                         } else if(auroraForecastArray[i].dates[j].forecasts[0].weatherForecast.cloud_area_fraction < 60){
-                            auroraForecastArray[i].dates[j].forecasts[0].auroraScore = 1
+                            auroraForecastArray[i].dates[j].forecasts[0].auroraScore = 30
                         }
                     } 
                 }
             }
-        }
-        // console.log(auroraForecastArray[1]) 
+        } 
         return auroraForecastArray  
     }
     const threeDayAuroraForecast = calculateAuroraScore(mergedData)
+    // console.log(threeDayAuroraForecast[0].dates)
     
 
     return threeDayAuroraForecast
