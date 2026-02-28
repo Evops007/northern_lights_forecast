@@ -19,7 +19,8 @@ export default async function calculateKpData() {
         {place: "Nordkapp", lat: "71.164932", lon: "25.786972"},
         {place: "Lofoten", lat: "68.23417", lon: "14.56834"},
         {place: "Bodø", lat: "67.280357", lon: "14.404916"},
-        {place: "Kirkenes", lat: "69.72706", lon: "30.04578"}
+        {place: "Kirkenes", lat: "69.72706", lon: "30.04578"},
+        {place: "Senja", lat: "69.333332", lon: "17.499998"}
     ]
 
     for (let i = 0; i < kpData.length; i++) {  //gjør om unyttig dato og tid fra kpData til nyttig dato samt kalkulerer auroraLimit

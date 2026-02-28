@@ -7,8 +7,6 @@ export default function SimpleMap({completeForecast}) {
   const [completeForecastIndex, setcompleteForecastIndex] = useState(0)
   const handleClick = (id) => {
     const indexOf = completeForecast.findIndex((element => element.place === id ))
-    console.log(id)
-    console.log(indexOf)
     setcompleteForecastIndex(indexOf)
   }
 
