@@ -1,31 +1,26 @@
 import ForecastCard from "@/components/ForecastCard";
 import SimpleMap from "@/components/SimpleMap";
-import TestKpData from "@/components/testKpData";
 import calculateKpData from "@/utils/calculateKpData";
-
 
 export default async function Home() {
   const completeForecast = await calculateKpData()
 
   return (
-    <main className="min-h-screen flex flex-col items-center justify-center p-8 bg-base-200 text-center">
-      <div className="w-full max-w-11/12 space-y-8">
+    <main className="min-h-screen flex flex-col items-center p-4 md:p-8 bg-base-200">
+      <div className="w-full max-w-[1400px] space-y-6">
 
-        <header>
-          <h1 className="leading-tight">
+        <header className="text-center">
+          <h1>
             <span className="block">Northern Lights</span>
             <span className="block">Forecast</span>
           </h1>
-          <p className="text-lg md:text-xl text-neutral/80 font-light max-w-lg mx-auto">
-            Finn de beste forholdene for å se nordlyset i kveld.
+          <p className="text-sm sm:text-lg md:text-xl text-neutral/80 font-light max-w-lg mx-auto">
+            Plan your trip with a northern light forecast
           </p>
         </header>
-         <div className="min-h-screen flex items-center justify-center">
-          <SimpleMap completeForecast={completeForecast} />
-        </div>
-        <div>
-          <TestKpData />
-        </div>
+
+        <SimpleMap completeForecast={completeForecast} />
+
       </div>
     </main>
   );

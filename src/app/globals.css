@@ -16,7 +16,7 @@
   --color-secondary-content: oklch(17.4% 0.149 302.717);
   --color-accent: oklch(76% 0.174 163.223);
   --color-accent-content: oklch(26% 0.051 172.552);
-  --color-neutral:  oklch(98% 0.014 180.72);
+  --color-neutral: oklch(98% 0.014 180.72);
   --color-neutral-content: oklch(26% 0 0);
   --color-info: oklch(62% 0.194 149.214);
   --color-info-content: oklch(97% 0.013 236.62);
@@ -38,7 +38,18 @@
 
 
 :root {
-  background-color: oklch(9.2% 0 0) ;
+  background-color: oklch(9.2% 0 0);
+}
+
+/* Mobile map crop: clip southern Norway, show northern region */
+.map-crop-mobile {
+  max-height: clamp(180px, 56vw, 400px);
+}
+
+@media (min-width: 1024px) {
+  .map-crop-mobile {
+    max-height: none;
+  }
 }
 
 @theme {
@@ -54,13 +65,12 @@ body {
   font-family: var(--font-body);
   overscroll-behavior: none;
   -webkit-tap-highlight-color: transparent;
-  touch-action: manipulation; 
+  touch-action: manipulation;
 }
 
 h1 {
-  @apply text-8xl font-bold bg-linear-to-r 
-  from-emerald-500 from-0% via-teal-200 via-45% to-indigo-400 to-100%
-  bg-clip-text text-transparent mb-6 pb-2 leading-tight;
+  @apply font-bold bg-linear-to-r from-emerald-500 from-0% via-teal-200 via-45% to-indigo-400 to-100% bg-clip-text text-transparent mb-4 pb-2 leading-tight;
+  font-size: clamp(2.25rem, 8vw, 6rem);
   font-family: var(--font-heading);
 }
 
