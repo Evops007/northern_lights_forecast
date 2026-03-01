@@ -4,7 +4,7 @@ A web application designed to help users find the optimal time and place to expe
 
 This project was built to solve a real-world problem: predicting the Northern Lights requires analyzing multiple independent data points simultaneously. This application aggregates data from various sources to calculate a single, reliable "Aurora Score" for several key locations.
 
-<img src="public/images/NorthernLightsForecast.gif" width="231">
+<img src="public/images/NorthernLightsForecast.gif" width="231"> &nbsp; &nbsp; <img src="public/images/NortherLightsForecast_desktop.png" width="600" >
 
 ## Technical Overview
 
